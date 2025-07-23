@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -19,8 +20,8 @@ public class Product {
     private Instant updatedAt;
     private Instant deletedAt;
 
-    private Product(String title, String owner, String category, Integer price, String description) {
-        this.id = java.util.UUID.randomUUID().toString();
+    private Product(final String title,final String owner,final String category,final Integer price,final String description) {
+        this.id = UUID.randomUUID().toString();
         this.title = title;
         this.owner = owner;
         this.category = category;
@@ -31,7 +32,7 @@ public class Product {
         this.deletedAt = null;
     }
 
-    public static Product newProduct(String title, String owner, String category, Double price, String description) {
+    public static Product newProduct(final String title,final String owner,final String category,final Double price,final String description) {
         if (title == null || title.isBlank())
             throw new DomainException("'title' cannot be empty");
 
