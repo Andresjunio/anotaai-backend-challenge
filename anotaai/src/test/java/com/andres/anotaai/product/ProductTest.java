@@ -1,6 +1,6 @@
 package com.andres.anotaai.product;
 
-import com.andres.anotaai.domain.Product;
+import com.andres.anotaai.domain.product.Product;
 import com.andres.anotaai.exception.DomainException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

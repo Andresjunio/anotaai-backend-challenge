@@ -1,6 +1,6 @@
 package com.andres.anotaai.category;
 
-import com.andres.anotaai.domain.Category;
+import com.andres.anotaai.domain.category.Category;
 import com.andres.anotaai.exception.DomainException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

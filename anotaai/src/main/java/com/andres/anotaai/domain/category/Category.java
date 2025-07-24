@@ -1,15 +1,17 @@
-package com.andres.anotaai.domain;
+package com.andres.anotaai.domain.category;
 
 
 import com.andres.anotaai.exception.DomainException;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
+@Document(collection = "category")
 public class Category {
 
     private String id;
