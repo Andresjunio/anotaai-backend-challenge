@@ -24,8 +24,12 @@ public class ProductService {
     }
 
     public Product createProduct(final ProductDTO data) {
-        Product product = Product.newProduct(data.title(), data.owner(), data.categoryId(), data.price(), data.description());
-        return repository.save(product);
+        try{
+            Product product = Product.newProduct(data.title(), data.owner(), data.categoryId(), data.price(), data.description());
+            return repository.save(product);
+        }catch(DomainException e) {
+            throw new DomainException(e.getMessage());
+        }
     }
 
     public Product getProductById(final String id) {
