@@ -31,19 +31,19 @@ public class ProductController {
         return new ResponseEntity<Product>(createdProduct, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable String id) {
         Product product = service.getProductById(id);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable String id, @Valid @RequestBody ProductDTO product) {
         Product updatedProduct = service.updateProduct(id, product);
         return new ResponseEntity<Product>(updatedProduct, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
         service.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
