@@ -33,6 +33,19 @@ public class Category {
     }
 
     public static Category newCategory(final String title,final String description,final String ownerId) {
+        validate(title, ownerId);
+        return new Category(title, description, ownerId);
+    }
+
+    public void update(final String title, final String description, final String ownerId) {
+        validate(title, ownerId);
+        this.title = title;
+        this.description = description;
+        this.ownerId = ownerId;
+        this.updatedAt = Instant.now();
+    }
+
+    private static void validate(String title, String ownerId) {
         if (title == null || title.isBlank()) {
             throw new DomainException("'title' should not be empty");
         }
@@ -40,8 +53,5 @@ public class Category {
         if (ownerId == null || ownerId.isBlank()) {
             throw new DomainException("'ownerId' should not be empty");
         }
-
-        return new Category(title, description, ownerId);
     }
-
 }
